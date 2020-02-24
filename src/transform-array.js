@@ -10,13 +10,13 @@ module.exports = function transform(arr) {
                     if(i<arr.length-1 && notControl(arr[i+1])) i++;
                     break;
                 case '--discard-prev':
-                    //if (res.length > 0) res.pop();
-                    if (i>1) {
-                        if(i>2 && arr[i-2] != '--discard-next')
-                        {
-                            if (arr[i-1] === res[res.length-1]) res.pop(); //?????????????????????????????
-                        }
-                    }
+                    if (res.length > 0) res.pop();
+                    // if (i>1) {
+                    //     if(i>2 && arr[i-2] != '--discard-next')
+                    //     {
+                    //         if (arr[i-1] === res[res.length-1]) res.pop(); //?????????????????????????????
+                    //     }
+                    // }
                     break;
                 case '--double-next':
                     if(i<arr.length-1 && notControl(arr[i+1])) {
@@ -29,7 +29,7 @@ module.exports = function transform(arr) {
                     //  if (res.length > 0) {
                     //      res.push(res[res.length-1]);                        
                     //  }
-                    //if (i>0) res.push(arr[i-1]);
+                    if (i>0) res.push(arr[i-1]);
                     break;
                 default:
                     res.push(arr[i]);
